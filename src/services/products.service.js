@@ -1,4 +1,4 @@
-const { verifyId } = require('../middlewares/verifyId');
+const mid = require('../middlewares/index');
 const { productsModel } = require('../models');
  
 const findAll = async () => {
@@ -8,7 +8,7 @@ const findAll = async () => {
 };
 
 const findById = async (id) => {
-  const error = verifyId(id);
+  const error = mid.verifyId(id);
   if (error.type) return error;
 
   const product = await productsModel.findById(id);
@@ -17,7 +17,15 @@ const findById = async (id) => {
   return { type: null, message: product };
 };
 
+const insert = async (product) => {
+  const insertId = await productsModel.insert(product);
+  const newProduct = await productsModel.findById(insertId);
+
+  return { type: null, message: newProduct };
+};
+
 module.exports = {
   findAll,
   findById,
+  insert,
 };
