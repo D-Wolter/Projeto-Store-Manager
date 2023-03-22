@@ -14,7 +14,7 @@ describe('Testes de unidade de produtos na camada service', () => {
   
       expect(result.message).to.deep.equal(allProducts);
     });
-  }); -
+  });
 
   describe('teste de pesquisa por produto Id', () => {
     it('teste de buca por id (caso sucesso)', async () => {

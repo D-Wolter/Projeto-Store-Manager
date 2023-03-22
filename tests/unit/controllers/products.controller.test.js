@@ -24,7 +24,7 @@ describe('Testes de unidade de produtos, na camada controler', () => {
     await productsController.getAllProducts(req, res);
 
     expect(res.status).to.have.been.calledWith(200);
-    expect(res.json).to.have.been.calledWith(getAllProducts);
+    expect(res.json).to.have.been.calledWith(productsList);
   });
 
   it('Teste de busca por produto Id (caso de sucesso)', async () => {
