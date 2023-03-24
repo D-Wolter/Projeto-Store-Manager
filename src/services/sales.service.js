@@ -20,7 +20,7 @@ const insertSales = async (arraySales) => {
   const error = await findIdExist(arraySales);
   if (error.type) return error;
 
-  const result = await salesModel.insertSales(arraySales);
+  const result = await salesModel.insertSalesProduct(arraySales);
 
   return { type: null, message: result };
 };
