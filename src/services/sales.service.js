@@ -1,5 +1,11 @@
 const { salesModel, productsModel } = require('../models');
 
+const getAllSales = async () => {
+  const result = await salesModel.getAllSales();
+
+  return { type: null, message: result };
+};
+
 const findIdExist = async (newArray) => {
   const products = await Promise.all(
     newArray.map(async ({ productId }) => {
@@ -8,8 +14,8 @@ const findIdExist = async (newArray) => {
       return true;
     }),
   );
-
-  if (products.some((e) => e === false)) { 
+  
+ if (products.some((e) => e === false)) { 
     return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
   }
 
@@ -20,13 +26,7 @@ const insertSales = async (arraySales) => {
   const error = await findIdExist(arraySales);
   if (error.type) return error;
 
-  const result = await salesModel.insertSalesProduct(arraySales);
-
-  return { type: null, message: result };
-};
-
-const findAllSales = async () => {
-  const result = await salesModel.findAllSales();
+  const result = await salesModel.insertSales(arraySales);
 
   return { type: null, message: result };
 };
@@ -34,5 +34,5 @@ const findAllSales = async () => {
 module.exports = {
   findIdExist,
   insertSales,
-  findAllSales,
+  getAllSales,
 };

@@ -1,6 +1,6 @@
 const connection = require('./connection');
 
-const findAllSales = async () => {
+const getAllSales = async () => {
   const query = `
   SELECT p.sale_id saleId, s.date, p.product_id productId, p.quantity 
   FROM StoreManager.sales s JOIN StoreManager.sales_products p 
@@ -40,6 +40,6 @@ const insertSales = async (newArray) => {
 
 module.exports = {
   insertSales,
-  findAllSales,
+  getAllSales,
   findByIdSales,
 };
