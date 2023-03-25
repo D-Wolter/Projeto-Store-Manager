@@ -4,6 +4,8 @@ const { verifyProductId } = require('./verifyProductId');
 const { verifyQuantity } = require('./verifyQuantity');
 const { schemas } = require('./schemas');
 const { verifyInsertProduct } = require('./verifyInsertProduct');
+const { validateIdBySaleProduct } = require('./validateIdBySaleProduct');
+const { validateSale } = require('./validate.sale');
 
 module.exports = {
   verifyId,
@@ -12,4 +14,6 @@ module.exports = {
   verifyQuantity,
   schemas,
   verifyInsertProduct,
+  validateIdBySaleProduct,
+  validateSale,
 };

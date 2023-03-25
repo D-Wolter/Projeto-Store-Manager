@@ -9,14 +9,11 @@ const getAllSales = async (_req, res) => {
 
 const getByIdSales = async (req, res) => {
   const { id } = req.params;
-  const result = await salesService.findIdExist(id);
-
-  if (res.code) {
-    return res.status(result.code)
-      .json({ message: result.message });
+  const { message } = await salesService.findIdExist(id);
+  if (!message[0].date) {
+    return res.status(404).json({ message });
   }
-  return res.status(200)
-    .json(result.message);
+  return res.status(200).json(message);
 };
 
 const addNewSales = async (req, res) => {
