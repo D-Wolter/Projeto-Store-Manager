@@ -1,34 +1,44 @@
 const { salesModel, productsModel } = require('../models');
+const errorMap = require('../util/error.map');
+const { salesSquema } = require('../middlewares/schemas');
 
 const getAllSales = async () => {
-  const result = await salesModel.getAllSales();
+  const sales = await salesModel.getAllSales();
 
-  return { type: null, message: result };
+  return { message: sales };
 };
 
-const findIdExist = async (newArray) => {
-  const products = await Promise.all(
-    newArray.map(async ({ productId }) => {
-      const product = await productsModel.findById(productId);
-      if (!product) return false;
-      return true;
-    }),
-  );
-  
- if (products.some((e) => e === false)) { 
-    return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
+const findIdExist = async (Id) => {
+  const sale = await salesModel.findByIdSales(Id);
+
+  if (sale.length === 0) {
+    return errorMap('Sale not found');
   }
-
-  return { type: null, message: '' };
+  return { message: sale };
 };
 
-const insertSales = async (arraySales) => {
-  const error = await findIdExist(arraySales);
-  if (error.type) return error;
+const insertSales = async (data) => {
+  const { error } = salesSquema.validate(data);
 
-  const result = await salesModel.insertSales(arraySales);
+  if (error) {
+    return errorMap(error.message);
+  }
+  const arr = await Promise.all(data.map(async (obj) => {
+    const result = await productsModel.findById(obj.productId);
+    return result;
+  }));
 
-  return { type: null, message: result };
+  if (arr.includes(undefined)) {
+    return errorMap('Product not found');
+  }
+  const newSale = await salesModel.insertSalesProduct(data);
+
+  const newData = {
+    id: newSale,
+    itemsSold: data.map((e) => e),
+  };
+
+  return { message: newData };
 };
 
 module.exports = {
