@@ -36,12 +36,130 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-22T14:30:51.797Z",
-    "modified": "2023-03-22T14:30:51.797Z",
+    "modified": "2023-03-27T17:24:56.134Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"Dwolter\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1eeeb0c8-4412-4452-9e39-c7283f65a662",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales",
+    "url": "http://localhost:3001/sales",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-27T17:25:25.132Z",
+    "modified": "2023-03-27T17:25:25.132Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "18a3baf6-3d9d-43ec-a6bd-45ce00a3246b",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales/1",
+    "url": "http://localhost:3001/sales/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-27T17:26:03.537Z",
+    "modified": "2023-03-27T17:26:03.537Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "891c12a0-4b9a-4a2e-9cab-8e11b781d6fc",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales/99",
+    "url": "http://localhost:3001/sales/99",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-27T17:26:10.905Z",
+    "modified": "2023-03-27T17:26:10.905Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b93629e0-fac4-4d65-97ad-b3cbc5dc31fa",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales",
+    "url": "http://localhost:3001/sales",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-27T17:27:05.507Z",
+    "modified": "2023-03-27T17:27:38.918Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "5ec1c174-8aaa-45fb-b8a3-c702aad184a9",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/1",
+    "url": "http://localhost:3001/products/1",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-03-27T17:29:09.909Z",
+    "modified": "2023-03-27T17:29:09.909Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "4701a304-b443-4865-8c44-8298d3018454",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/99",
+    "url": "http://localhost:3001/products/99",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-03-27T17:29:24.123Z",
+    "modified": "2023-03-27T17:29:24.123Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1ee43b8c-380b-4902-80cd-182ffcb345cd",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/2",
+    "url": "http://localhost:3001/products/2",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-03-27T17:29:28.302Z",
+    "modified": "2023-03-27T17:29:28.302Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
       "form": []
     },
     "tests": []

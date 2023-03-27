@@ -9,7 +9,10 @@ const salesSquema = Joi.array().items(Joi.object({
     .label('quantity'),
 }));
 
+const productNameSchema = Joi.string().min(5).max(30).required();
+
 module.exports = {
   idSchema,
   salesSquema,
+  productNameSchema,
 };
