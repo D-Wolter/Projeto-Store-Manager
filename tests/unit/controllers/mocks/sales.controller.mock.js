@@ -1,3 +1,18 @@
+const allSales = [
+  {
+    saleId: 1,
+    date: "2021-09-09T04:54:29.000Z",
+    productId: 1,
+    quantity: 2
+  },
+  {
+    saleId: 1,
+    date: "2021-09-09T04:54:54.000Z",
+    productId: 2,
+    quantity: 2
+  }
+]
+
 const salesError = {
   type: 'PRODUCT_NOT_FOUND',
   message: 'Product not found',
@@ -18,6 +33,7 @@ const salesSucess = {
 };
 
 module.exports = {
+  allSales,
   salesError,
   salesSucess,
 }
