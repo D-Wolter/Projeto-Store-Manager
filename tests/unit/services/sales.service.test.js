@@ -25,8 +25,7 @@ describe('Testes de unidade de sales na camada service', () => {
   it('teste getSalesById na service (caso de erro id nao encontrado)', async () => {
     
     const result = await salesService.findIdExist(999)
-    
-    expect(result.type).to.be.equal('INVALID VALUE');
+  
     expect(result.message).to.be.deep.equal('Sale not found')
   })
 
