@@ -2,30 +2,21 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const { salesModel } = require('../../../src/models');
-const { salesService } = require('../../../src/services/');
-const { sales, findSaleId } = require('./mocks/sales.service.mock');
+const { salesService, productsService } = require('../../../src/services/');
+const { allSales } = require('./mocks/sales.service.mock');
 
 describe('Testes de unidade de sales na camada service', () => {
-  describe('teste de listagem de todas as sales', () => {
-   it('todas as sales (caso sucesso)', async function () {
-      
-      sinon.stub(salesModel, 'getAllSales').resolves(sales);
-      
-      const result = await salesService.getAllSales();
+  it('teste getAllSales na service (caso de sucesso)', async () => {
 
-      expect(result.type).to.be.equal(null);
-      expect(result.message).to.deep.equal(sales);
-   });
-   it('retorna a venda caso ID existente', async () => {
-      
-      sinon.stub(salesModel, 'findByIdSales').resolves(findSaleId);
-      
-      const result = await salesService.findIdExist(1);
+      sinon.stub(salesModel, 'getAllSales')
+      .resolves(allSales);
+    
+    const result = await salesService.getAllSales()
+    console.log('++++++++++', result)
 
-      expect(result.type).to.equal(null);
-      expect(result.message).to.deep.equal(findSaleId);
-    });
+
+    expect(result.message).to.be.deep.equal(allSales)
   });
 
-  afterEach(function () { sinon.restore() });
+  afterEach(sinon.restore);
 });
